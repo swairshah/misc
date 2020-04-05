@@ -1,0 +1,78 @@
+## Some notes about β distribition
+
+```julia echo=false
+using Plots
+gr();
+```
+
+β(a, b) = Γ(a) Γ(b) / Γ(a + b), where Γ(n+1) = n Γ(n)
+
+β(a, b) is also defined as
+
+\begin{equation}
+\int_{0}^{1} x^{a-1} (1-x)^{b-1} dx
+\end{equation}
+
+```julia dpi=220
+using Distributions, StatsPlots
+l = @layout [a b; c d]
+p1 = plot(Beta(0.5,0.5), legend=false, title="0.5, 0.5")
+p2 = plot(Beta(2,1), legend=false, title="2, 1")
+p3 = plot(Beta(4,4), legend=false, title="4, 4")
+p4 = plot(Beta(2,10), legend=false, title="2, 10")
+plot(p1, p2, p3, p4, layout = l)
+```
+
+Beta is a flexible distribution on (0,1) and thus is commmonly used
+to represent unknown probabilities. Let r.v. $X$ be the number of heads
+in n tosses of a coin with heas probability $p$, which is unknown.
+We can model $p$ ~ Beta($a$, $b$).
+So given $p$, the conditional distribution for $X$ is,
+$$ X|p \sim \text{Bin}(n, p)$$.
+If $f(p)$ denotes the prior distribution of $p$, and $f(p | X=k)$ denotes
+the posterior distribution given $k$ heads out of $n$,
+\begin{equation}
+f(p) = \frac{1}{\beta(a, b)} p^{a-1} (1-p)^{b-1}
+\end{equation}
+
+\begin{equation}
+f(p | X=k) = \frac{P(X = k | p) f(p)} {P(X=k)}
+\end{equation}
+
+\begin{equation}
+f(p | X=k) = \frac{{n \choose k} p^k (1-p)^{n-k} \cdot
+            \frac{1}{\beta(a,b)} p^{a-1} (1-p)^{b-1}}{P(X=k)}
+\end{equation}
+
+Since $f(p | X=k)$ is the function of $p$, we can drop all other terms
+at the expense of the equality turning into proportionality.
+
+
+\begin{equation}
+f(p | X=k) \propto p^{k+a-1} (1-p)^{n-k+b-1}
+\end{equation}
+
+Which is $\beta(a+k, b+n-k)$. Thus if the prior is $\beta(a, b)$
+then posterior $p | X=k = \beta(a+k, b+n-k)$.
+We are just adding the number of observed heads to $a$ and tails to $b$.
+
+```julia dpi=200
+using Interact, Plots
+Ns = 1:100
+p_true = 0.8
+data = rand(Bernoulli(p_true), last(Ns))
+prior_belief = Beta(1, 1)
+
+animation = @animate for (i, N) in enumerate(Ns)
+    heads = sum(data[1:i-1])
+    tails = N - heads
+    updated_belief = Beta(prior_belief.α + heads, prior_belief.β + tails)
+
+    plot(updated_belief,
+        title = "Updated belief after $N observations",
+        xlabel = "probability of heads",
+        legend = nothing, xlim = (0,1), yticks=[], fill=0, α=0.2, w=3)
+    vline!([p_true])
+end
+gif(animation, fps=3)
+```
