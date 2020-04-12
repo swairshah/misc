@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<HTML lang = "en">
+<HEAD>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  
+  
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: { equationNumbers: { autoNumber: "AMS" } }
+    });
+  </script>
+
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+
+  
+<style>
+pre.hljl {
+    border: 1px solid #ccc;
+    margin: 5px;
+    padding: 5px;
+    overflow-x: auto;
+    color: rgb(68,68,68); background-color: rgb(251,251,251); }
+pre.hljl > span.hljl-t { }
+pre.hljl > span.hljl-w { }
+pre.hljl > span.hljl-e { }
+pre.hljl > span.hljl-eB { }
+pre.hljl > span.hljl-o { }
+pre.hljl > span.hljl-k { color: rgb(148,91,176); font-weight: bold; }
+pre.hljl > span.hljl-kc { color: rgb(59,151,46); font-style: italic; }
+pre.hljl > span.hljl-kd { color: rgb(214,102,97); font-style: italic; }
+pre.hljl > span.hljl-kn { color: rgb(148,91,176); font-weight: bold; }
+pre.hljl > span.hljl-kp { color: rgb(148,91,176); font-weight: bold; }
+pre.hljl > span.hljl-kr { color: rgb(148,91,176); font-weight: bold; }
+pre.hljl > span.hljl-kt { color: rgb(148,91,176); font-weight: bold; }
+pre.hljl > span.hljl-n { }
+pre.hljl > span.hljl-na { }
+pre.hljl > span.hljl-nb { }
+pre.hljl > span.hljl-nbp { }
+pre.hljl > span.hljl-nc { }
+pre.hljl > span.hljl-ncB { }
+pre.hljl > span.hljl-nd { color: rgb(214,102,97); }
+pre.hljl > span.hljl-ne { }
+pre.hljl > span.hljl-neB { }
+pre.hljl > span.hljl-nf { color: rgb(66,102,213); }
+pre.hljl > span.hljl-nfm { color: rgb(66,102,213); }
+pre.hljl > span.hljl-np { }
+pre.hljl > span.hljl-nl { }
+pre.hljl > span.hljl-nn { }
+pre.hljl > span.hljl-no { }
+pre.hljl > span.hljl-nt { }
+pre.hljl > span.hljl-nv { }
+pre.hljl > span.hljl-nvc { }
+pre.hljl > span.hljl-nvg { }
+pre.hljl > span.hljl-nvi { }
+pre.hljl > span.hljl-nvm { }
+pre.hljl > span.hljl-l { }
+pre.hljl > span.hljl-ld { color: rgb(148,91,176); font-style: italic; }
+pre.hljl > span.hljl-s { color: rgb(201,61,57); }
+pre.hljl > span.hljl-sa { color: rgb(201,61,57); }
+pre.hljl > span.hljl-sb { color: rgb(201,61,57); }
+pre.hljl > span.hljl-sc { color: rgb(201,61,57); }
+pre.hljl > span.hljl-sd { color: rgb(201,61,57); }
+pre.hljl > span.hljl-sdB { color: rgb(201,61,57); }
+pre.hljl > span.hljl-sdC { color: rgb(201,61,57); }
+pre.hljl > span.hljl-se { color: rgb(59,151,46); }
+pre.hljl > span.hljl-sh { color: rgb(201,61,57); }
+pre.hljl > span.hljl-si { }
+pre.hljl > span.hljl-so { color: rgb(201,61,57); }
+pre.hljl > span.hljl-sr { color: rgb(201,61,57); }
+pre.hljl > span.hljl-ss { color: rgb(201,61,57); }
+pre.hljl > span.hljl-ssB { color: rgb(201,61,57); }
+pre.hljl > span.hljl-nB { color: rgb(59,151,46); }
+pre.hljl > span.hljl-nbB { color: rgb(59,151,46); }
+pre.hljl > span.hljl-nfB { color: rgb(59,151,46); }
+pre.hljl > span.hljl-nh { color: rgb(59,151,46); }
+pre.hljl > span.hljl-ni { color: rgb(59,151,46); }
+pre.hljl > span.hljl-nil { color: rgb(59,151,46); }
+pre.hljl > span.hljl-noB { color: rgb(59,151,46); }
+pre.hljl > span.hljl-oB { color: rgb(102,102,102); font-weight: bold; }
+pre.hljl > span.hljl-ow { color: rgb(102,102,102); font-weight: bold; }
+pre.hljl > span.hljl-p { }
+pre.hljl > span.hljl-c { color: rgb(153,153,119); font-style: italic; }
+pre.hljl > span.hljl-ch { color: rgb(153,153,119); font-style: italic; }
+pre.hljl > span.hljl-cm { color: rgb(153,153,119); font-style: italic; }
+pre.hljl > span.hljl-cp { color: rgb(153,153,119); font-style: italic; }
+pre.hljl > span.hljl-cpB { color: rgb(153,153,119); font-style: italic; }
+pre.hljl > span.hljl-cs { color: rgb(153,153,119); font-style: italic; }
+pre.hljl > span.hljl-csB { color: rgb(153,153,119); font-style: italic; }
+pre.hljl > span.hljl-g { }
+pre.hljl > span.hljl-gd { }
+pre.hljl > span.hljl-ge { }
+pre.hljl > span.hljl-geB { }
+pre.hljl > span.hljl-gh { }
+pre.hljl > span.hljl-gi { }
+pre.hljl > span.hljl-go { }
+pre.hljl > span.hljl-gp { }
+pre.hljl > span.hljl-gs { }
+pre.hljl > span.hljl-gsB { }
+pre.hljl > span.hljl-gt { }
+</style>
+
+
+
+  <style type="text/css">
+  @font-face {
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-style: normal;
+  font-weight: 600;
+}
+html {
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+body {
+  margin: 0;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+[hidden],
+template {
+  display: none;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+b,
+strong {
+  font-weight: bold;
+}
+dfn {
+  font-style: italic;
+}
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+mark {
+  background: #ff0;
+  color: #000;
+}
+small {
+  font-size: 80%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+img {
+  border: 0;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+figure {
+  margin: 1em 40px;
+}
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+pre {
+  overflow: auto;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
+}
+button {
+  overflow: visible;
+}
+button,
+select {
+  text-transform: none;
+}
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+}
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+input {
+  line-height: normal;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box; /* 2 */
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+legend {
+  border: 0; /* 1 */
+  padding: 0; /* 2 */
+}
+textarea {
+  overflow: auto;
+}
+optgroup {
+  font-weight: bold;
+}
+table {
+  font-family: monospace, monospace;
+  font-size : 0.8em;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td,
+th {
+  padding: 0;
+}
+thead th {
+    border-bottom: 1px solid black;
+    background-color: white;
+}
+tr:nth-child(odd){
+  background-color: rgb(248,248,248);
+}
+
+
+/*
+* Skeleton V2.0.4
+* Copyright 2014, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 12/29/2014
+*/
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box; }
+.column,
+.columns {
+  width: 100%;
+  float: left;
+  box-sizing: border-box; }
+@media (min-width: 400px) {
+  .container {
+    width: 85%;
+    padding: 0; }
+}
+@media (min-width: 550px) {
+  .container {
+    width: 80%; }
+  .column,
+  .columns {
+    margin-left: 4%; }
+  .column:first-child,
+  .columns:first-child {
+    margin-left: 0; }
+
+  .one.column,
+  .one.columns                    { width: 4.66666666667%; }
+  .two.columns                    { width: 13.3333333333%; }
+  .three.columns                  { width: 22%;            }
+  .four.columns                   { width: 30.6666666667%; }
+  .five.columns                   { width: 39.3333333333%; }
+  .six.columns                    { width: 48%;            }
+  .seven.columns                  { width: 56.6666666667%; }
+  .eight.columns                  { width: 65.3333333333%; }
+  .nine.columns                   { width: 74.0%;          }
+  .ten.columns                    { width: 82.6666666667%; }
+  .eleven.columns                 { width: 91.3333333333%; }
+  .twelve.columns                 { width: 100%; margin-left: 0; }
+
+  .one-third.column               { width: 30.6666666667%; }
+  .two-thirds.column              { width: 65.3333333333%; }
+
+  .one-half.column                { width: 48%; }
+
+  /* Offsets */
+  .offset-by-one.column,
+  .offset-by-one.columns          { margin-left: 8.66666666667%; }
+  .offset-by-two.column,
+  .offset-by-two.columns          { margin-left: 17.3333333333%; }
+  .offset-by-three.column,
+  .offset-by-three.columns        { margin-left: 26%;            }
+  .offset-by-four.column,
+  .offset-by-four.columns         { margin-left: 34.6666666667%; }
+  .offset-by-five.column,
+  .offset-by-five.columns         { margin-left: 43.3333333333%; }
+  .offset-by-six.column,
+  .offset-by-six.columns          { margin-left: 52%;            }
+  .offset-by-seven.column,
+  .offset-by-seven.columns        { margin-left: 60.6666666667%; }
+  .offset-by-eight.column,
+  .offset-by-eight.columns        { margin-left: 69.3333333333%; }
+  .offset-by-nine.column,
+  .offset-by-nine.columns         { margin-left: 78.0%;          }
+  .offset-by-ten.column,
+  .offset-by-ten.columns          { margin-left: 86.6666666667%; }
+  .offset-by-eleven.column,
+  .offset-by-eleven.columns       { margin-left: 95.3333333333%; }
+
+  .offset-by-one-third.column,
+  .offset-by-one-third.columns    { margin-left: 34.6666666667%; }
+  .offset-by-two-thirds.column,
+  .offset-by-two-thirds.columns   { margin-left: 69.3333333333%; }
+
+  .offset-by-one-half.column,
+  .offset-by-one-half.columns     { margin-left: 52%; }
+
+}
+html {
+  font-size: 62.5%; }
+body {
+  font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #222; }
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 300; }
+h1 { font-size: 3.6rem; line-height: 1.2;  letter-spacing: -.1rem;}
+h2 { font-size: 3.4rem; line-height: 1.25; letter-spacing: -.1rem; }
+h3 { font-size: 3.2rem; line-height: 1.3;  letter-spacing: -.1rem; }
+h4 { font-size: 2.8rem; line-height: 1.35; letter-spacing: -.08rem; }
+h5 { font-size: 2.4rem; line-height: 1.5;  letter-spacing: -.05rem; }
+h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
+
+p {
+  margin-top: 0; }
+a {
+  color: #1EAEDB; }
+a:hover {
+  color: #0FA0CE; }
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: #555;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box; }
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.button:focus,
+button:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+input[type="button"]:focus {
+  color: #333;
+  border-color: #888;
+  outline: 0; }
+.button.button-primary,
+button.button-primary,
+input[type="submit"].button-primary,
+input[type="reset"].button-primary,
+input[type="button"].button-primary {
+  color: #FFF;
+  background-color: #33C3F0;
+  border-color: #33C3F0; }
+.button.button-primary:hover,
+button.button-primary:hover,
+input[type="submit"].button-primary:hover,
+input[type="reset"].button-primary:hover,
+input[type="button"].button-primary:hover,
+.button.button-primary:focus,
+button.button-primary:focus,
+input[type="submit"].button-primary:focus,
+input[type="reset"].button-primary:focus,
+input[type="button"].button-primary:focus {
+  color: #FFF;
+  background-color: #1EAEDB;
+  border-color: #1EAEDB; }
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  height: 38px;
+  padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+  background-color: #fff;
+  border: 1px solid #D1D1D1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box; }
+/* Removes awkward default styles on some inputs for iOS */
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none; }
+textarea {
+  min-height: 65px;
+  padding-top: 6px;
+  padding-bottom: 6px; }
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border: 1px solid #33C3F0;
+  outline: 0; }
+label,
+legend {
+  display: block;
+  margin-bottom: .5rem;
+  font-weight: 600; }
+fieldset {
+  padding: 0;
+  border-width: 0; }
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline; }
+label > .label-body {
+  display: inline-block;
+  margin-left: .5rem;
+  font-weight: normal; }
+ul {
+  list-style: circle; }
+ol {
+  list-style: decimal; }
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin: 1.5rem 0 1.5rem 3rem;
+  font-size: 90%; }
+li > p {margin : 0;}
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #E1E1E1; }
+th:first-child,
+td:first-child {
+  padding-left: 0; }
+th:last-child,
+td:last-child {
+  padding-right: 0; }
+button,
+.button {
+  margin-bottom: 1rem; }
+input,
+textarea,
+select,
+fieldset {
+  margin-bottom: 1.5rem; }
+pre,
+blockquote,
+dl,
+figure,
+table,
+p,
+ul,
+ol,
+form {
+  margin-bottom: 1.0rem; }
+.u-full-width {
+  width: 100%;
+  box-sizing: border-box; }
+.u-max-full-width {
+  max-width: 100%;
+  box-sizing: border-box; }
+.u-pull-right {
+  float: right; }
+.u-pull-left {
+  float: left; }
+hr {
+  margin-top: 3rem;
+  margin-bottom: 3.5rem;
+  border-width: 0;
+  border-top: 1px solid #E1E1E1; }
+.container:after,
+.row:after,
+.u-cf {
+  content: "";
+  display: table;
+  clear: both; }
+
+pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  word-break: break-all;
+  word-wrap: break-word;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+pre.hljl {
+  margin: 0 0 10px;
+  display: block;
+  background: #f5f5f5;
+  border-radius: 4px;
+  padding : 5px;
+}
+
+pre.output {
+  background: #ffffff;
+}
+
+pre.code {
+  background: #ffffff;
+}
+
+pre.julia-error {
+  color : red
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 0.9em;
+}
+
+
+@media (min-width: 400px) {}
+@media (min-width: 550px) {}
+@media (min-width: 750px) {}
+@media (min-width: 1000px) {}
+@media (min-width: 1200px) {}
+
+h1.title {margin-top : 20px}
+img {max-width : 100%}
+div.title {text-align: center;}
+
+  </style>
+
+
+
+</HEAD>
+  <BODY>
+    <div class ="container">
+      <div class = "row">
+        <div class = "col-md-12 twelve columns">
+
+          <div class="title">
+            
+            
+            
+          </div>
+
+          <h3>Errors in numerical computations and condition number</h3>
+<p>There are various ways erros creep into numerical computations, e.g. discretization, modelling, approximation etc. In many numerical computations we are trying to approximate a solution, If we don&#39;t know the exact solution to say an problem how do we estimate the errors? For example say we want to find a root <span class="math">$x_*$</span> of <span class="math">$f(x) = 0$</span>, and our approxiate solution is <span class="math">$x_{est}$</span>, how do we measure error <span class="math">$|x_* - x_{est}|$</span> without knowing  <span class="math">$x_*$</span>?</p>
+<ol>
+<li><p><strong>Forward Error</strong>: Use a proxy for the actual error as an estimate for the real  error. E.g. use <span class="math">$|f(x_*) - f(x_{est})|$</span> as a proxy for <span class="math">$|x_* - x_{est}|$</span>.</p>
+</li>
+<li><p><strong>Backward Error</strong>: Estimate how much change in the problem is necessary  so that the approximate solution becomes exact? To understand this consider  solving the system of linear equations <span class="math">$Ax = b$</span>. Say we have an approximate  algorithm which gives us <span class="math">$x_{est}$</span>. We can compute <span class="math">$Ax_{est} = b_{est}$</span>,  the change <span class="math">$b - b_{est}$</span> is a change in <span class="math">$b$</span> &#40;which is part of the problem  <em>formulation</em> &#41; can make the approximate solution exact. This is called the  backward error. In this example computing the forward error would be to compute,  <span class="math">$|A^{-1} b - x_{est}|$</span> which requires a matrix inversion  &#40;and that computation may itself have errors of its own&#41;. Many times its  easier to compute the backward errors than the forward errors.</p>
+</li>
+</ol>
+<p><strong>Condition Number</strong>: A problem is well conditioned if low for backward errors imply low forward errors. So a small change in the problem &#40;e.g. values of matrix <span class="math">$A$</span> in <span class="math">$Ax = b$</span>&#41; will have small change the solution.</p>
+<p>In numerical linear algebra we compute the condition number of a matrix to judge its <em>well-behavedness</em>. The condition number of a matrix A with respect to a given norm <span class="math">$\| \cdot \|$</span> is,</p>
+<p>\begin&#123;equation&#125;     \text&#123;cond&#125;&#40;A&#41; &#61; \frac&#123;\| A \|&#125;&#123; \| A^&#123;-1&#125; \|&#125; \end&#123;equation&#125;</p>
+<h3>Gradient Descent</h3>
+
+
+
+<pre class='hljl'>
+<span class='hljl-k'>using</span><span class='hljl-t'> </span><span class='hljl-n'>Flux</span><span class='hljl-t'>
+
+</span><span class='hljl-k'>abstract type</span><span class='hljl-t'> </span><span class='hljl-n'>DescentMethod</span><span class='hljl-t'> </span><span class='hljl-k'>end</span><span class='hljl-t'>
+</span><span class='hljl-k'>struct</span><span class='hljl-t'> </span><span class='hljl-n'>GradientDescent</span><span class='hljl-t'> </span><span class='hljl-oB'>&lt;:</span><span class='hljl-t'> </span><span class='hljl-n'>DescentMethod</span><span class='hljl-t'>
+    </span><span class='hljl-n'>α</span><span class='hljl-t'>
+</span><span class='hljl-k'>end</span><span class='hljl-t'>
+
+</span><span class='hljl-nf'>init!</span><span class='hljl-p'>(</span><span class='hljl-n'>M</span><span class='hljl-oB'>::</span><span class='hljl-n'>GradientDescent</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>f</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>∇f</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>x</span><span class='hljl-p'>)</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-n'>M</span><span class='hljl-t'>
+</span><span class='hljl-k'>function</span><span class='hljl-t'> </span><span class='hljl-nf'>step!</span><span class='hljl-p'>(</span><span class='hljl-n'>M</span><span class='hljl-oB'>::</span><span class='hljl-n'>GradientDescent</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>f</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>∇f</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>x</span><span class='hljl-p'>)</span><span class='hljl-t'>
+    </span><span class='hljl-n'>α</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>g</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-n'>M</span><span class='hljl-oB'>.</span><span class='hljl-n'>α</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-nf'>∇f</span><span class='hljl-p'>(</span><span class='hljl-n'>x</span><span class='hljl-p'>)</span><span class='hljl-t'>
+    </span><span class='hljl-k'>return</span><span class='hljl-t'> </span><span class='hljl-n'>x</span><span class='hljl-t'> </span><span class='hljl-oB'>-</span><span class='hljl-t'> </span><span class='hljl-n'>α</span><span class='hljl-oB'>*</span><span class='hljl-n'>g</span><span class='hljl-t'>
+</span><span class='hljl-k'>end</span><span class='hljl-t'>
+
+</span><span class='hljl-k'>function</span><span class='hljl-t'> </span><span class='hljl-nf'>minimize</span><span class='hljl-p'>(</span><span class='hljl-n'>M</span><span class='hljl-oB'>::</span><span class='hljl-n'>DescentMethod</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>f</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>∇f</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>x</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>n</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>ε</span><span class='hljl-oB'>=</span><span class='hljl-nfB'>0.0001</span><span class='hljl-p'>)</span><span class='hljl-t'>
+    </span><span class='hljl-nf'>init!</span><span class='hljl-p'>(</span><span class='hljl-n'>M</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>f</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>∇f</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>x</span><span class='hljl-p'>)</span><span class='hljl-t'>
+    </span><span class='hljl-k'>for</span><span class='hljl-t'> </span><span class='hljl-n'>i</span><span class='hljl-t'> </span><span class='hljl-kp'>in</span><span class='hljl-t'> </span><span class='hljl-ni'>1</span><span class='hljl-t'> </span><span class='hljl-oB'>:</span><span class='hljl-t'> </span><span class='hljl-n'>n</span><span class='hljl-t'>
+        </span><span class='hljl-n'>x′</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-nf'>step!</span><span class='hljl-p'>(</span><span class='hljl-n'>M</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>f</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>∇f</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>x</span><span class='hljl-p'>)</span><span class='hljl-t'>
+        </span><span class='hljl-k'>if</span><span class='hljl-t'> </span><span class='hljl-nf'>norm</span><span class='hljl-p'>(</span><span class='hljl-n'>x</span><span class='hljl-t'> </span><span class='hljl-oB'>-</span><span class='hljl-t'> </span><span class='hljl-n'>x′</span><span class='hljl-p'>)</span><span class='hljl-t'> </span><span class='hljl-oB'>&lt;</span><span class='hljl-t'> </span><span class='hljl-n'>ε</span><span class='hljl-t'>
+            </span><span class='hljl-k'>break</span><span class='hljl-t'>
+        </span><span class='hljl-k'>end</span><span class='hljl-t'>
+        </span><span class='hljl-n'>x</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-n'>x′</span><span class='hljl-t'>
+    </span><span class='hljl-k'>end</span><span class='hljl-t'>
+    </span><span class='hljl-k'>return</span><span class='hljl-t'> </span><span class='hljl-n'>x</span><span class='hljl-t'>
+</span><span class='hljl-k'>end</span><span class='hljl-p'>;</span>
+</pre>
+
+
+
+<p>Lets compare the solution of <code>A\b</code> to the one achieved by <code>GradientDescent</code>.</p>
+
+
+<pre class='hljl'>
+<span class='hljl-n'>M</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-nf'>randn</span><span class='hljl-p'>(</span><span class='hljl-ni'>5</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>5</span><span class='hljl-p'>);</span><span class='hljl-t'>
+</span><span class='hljl-n'>A</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-n'>M</span><span class='hljl-oB'>&#39;</span><span class='hljl-t'> </span><span class='hljl-oB'>*</span><span class='hljl-t'> </span><span class='hljl-n'>M</span><span class='hljl-t'>
+</span><span class='hljl-n'>b</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-nf'>randn</span><span class='hljl-p'>(</span><span class='hljl-ni'>5</span><span class='hljl-p'>)</span><span class='hljl-t'>
+
+</span><span class='hljl-n'>f</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-n'>x</span><span class='hljl-t'> </span><span class='hljl-oB'>-&gt;</span><span class='hljl-t'> </span><span class='hljl-ni'>1</span><span class='hljl-oB'>/</span><span class='hljl-ni'>2</span><span class='hljl-t'> </span><span class='hljl-oB'>*</span><span class='hljl-t'> </span><span class='hljl-n'>x</span><span class='hljl-oB'>&#39;</span><span class='hljl-t'> </span><span class='hljl-oB'>*</span><span class='hljl-t'> </span><span class='hljl-n'>A</span><span class='hljl-t'> </span><span class='hljl-oB'>*</span><span class='hljl-t'> </span><span class='hljl-n'>x</span><span class='hljl-t'> </span><span class='hljl-oB'>-</span><span class='hljl-t'> </span><span class='hljl-n'>b</span><span class='hljl-oB'>&#39;</span><span class='hljl-t'> </span><span class='hljl-oB'>*</span><span class='hljl-t'> </span><span class='hljl-n'>x</span><span class='hljl-t'>
+</span><span class='hljl-n'>∇f</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-n'>x</span><span class='hljl-t'> </span><span class='hljl-oB'>-&gt;</span><span class='hljl-t'> </span><span class='hljl-nf'>gradient</span><span class='hljl-p'>(</span><span class='hljl-n'>f</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>x</span><span class='hljl-p'>)[</span><span class='hljl-ni'>1</span><span class='hljl-p'>]</span><span class='hljl-t'>
+
+</span><span class='hljl-n'>x</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-nf'>randn</span><span class='hljl-p'>(</span><span class='hljl-ni'>5</span><span class='hljl-p'>)</span><span class='hljl-t'>
+</span><span class='hljl-n'>x̂</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-nf'>minimize</span><span class='hljl-p'>(</span><span class='hljl-nf'>GradientDescent</span><span class='hljl-p'>(</span><span class='hljl-nfB'>0.05</span><span class='hljl-p'>),</span><span class='hljl-t'> </span><span class='hljl-n'>f</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>∇f</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>x</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>5000</span><span class='hljl-p'>)</span><span class='hljl-t'>
+
+</span><span class='hljl-nf'>print</span><span class='hljl-p'>(</span><span class='hljl-nf'>norm</span><span class='hljl-p'>(</span><span class='hljl-n'>x̂</span><span class='hljl-t'> </span><span class='hljl-oB'>-</span><span class='hljl-t'> </span><span class='hljl-n'>A</span><span class='hljl-oB'>\</span><span class='hljl-n'>b</span><span class='hljl-p'>))</span>
+</pre>
+
+
+<pre class="output">
+0.3524213368844321
+</pre>
+
+
+<h3>Conjugate Gradients</h3>
+
+
+<pre class='hljl'>
+<span class='hljl-k'>using</span><span class='hljl-t'> </span><span class='hljl-n'>LinearAlgebra</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>IterativeSolvers</span><span class='hljl-t'>
+
+</span><span class='hljl-n'>A</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-nf'>diagm</span><span class='hljl-p'>(</span><span class='hljl-ni'>100</span><span class='hljl-oB'>:</span><span class='hljl-ni'>199</span><span class='hljl-p'>)</span><span class='hljl-t'>
+</span><span class='hljl-n'>b</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-nf'>ones</span><span class='hljl-p'>(</span><span class='hljl-ni'>100</span><span class='hljl-p'>)</span><span class='hljl-t'>
+</span><span class='hljl-n'>x</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>history</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-nf'>cg</span><span class='hljl-p'>(</span><span class='hljl-n'>A</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>b</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>log</span><span class='hljl-oB'>=</span><span class='hljl-kc'>true</span><span class='hljl-p'>)</span><span class='hljl-t'>
+
+</span><span class='hljl-nf'>plot</span><span class='hljl-p'>(</span><span class='hljl-n'>history</span><span class='hljl-p'>[</span><span class='hljl-sc'>:resnorm</span><span class='hljl-p'>],</span><span class='hljl-t'> </span><span class='hljl-n'>legend</span><span class='hljl-oB'>=</span><span class='hljl-kc'>false</span><span class='hljl-p'>)</span>
+</pre>
+
+
+<img src="data:image/png;base64,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Hli2bNnatWsTiYS9g00oApaVI0eOPPnkkw0NDY2NjV/60peefPJJuydytL6+vieeeCKVYt+mMbz44ov9/f0bNmyYM2fOc889Z/c4zvXYY4/deuutL7300ooVKx577DG7x3GcTZs2rVmz5vN/WDc2NtbU1DQ2NlZXV2/cuNHe2SYUAcvKkSNHrrnmmlmzZhUUFFx33XWHDx+2eyLnymQyTzzxxK233mr3IBp44403li9fXlhYeNttt9100012j+NcxcXF/f39yWQymUxydc1TTZ8+/bbbbvv8l1u2bFm6dGkoFFq6dOnmzZttHGyi2fBBZh1ddtlll112mYiYpvncc88tXrzY7omc67e//e35559/9dVX2z2IBo4ePfrmm282NDRMmTLlBz/4gd3jONd999333e9+98c//rGI/OxnP7N7HMeJx+Mjf9nR0VFTUyMiNTU1nZ2dNg01GTgDG4d33333rrvuKikpueuuu+yexaHee++9rVu3rl692u5B9NDf329Z1rPPPnvllVf+6Ec/snsc53r22WeXL1/+u9/97lvf+tYvf/lLu8dxOsuyhi8gYFlWJpOxe5wJRMCyYlnWM888s2HDhgceeKC+vp5rAZzOe++919LS8rWvfW3JkiUismTJkp07d9o9lHNVVFR885vfjEajS5cuPXDggN3jONeePXtuvvnmaDR6yy237N692+5xnC4ajQ5f7ai9vb2qqsrucSYQAcvK9u3b33777UceeSQajQ6/EG/3RA5VX1/f/BkRaW5unjt3rt1DOdcVV1zx2muvDQ0NvfrqqzNnzrR7HOe66KKL/vjHPyaTyebm5osvvtjucZxu4cKFTU1NlmU1NTUtWrTI7nEmEAHLSktLS1tb27Jly77xGbsnghusXr1669aty5cv37p16/e//327x3GuhoaGv/zlL8uXL//Tn/7EHTWmlStX7t+/f8WKFQcOHKirq7N7nAnEtRABAFriDAwAoCUCBgDQEgEDAGiJgAEAtETAAABaImAAAC0RMACAlggYAEBLBAwAoCUCBgDQEgEDAGiJgAEAtETAAABaImAAAC39f6vg13K9313ZAAAAAElFTkSuQmCC"  />
+
+<hr />
+<p>References:</p>
+<p>&#91;1&#93; Trefethen, Lloyd N., and David Bau III.     Numerical linear algebra. Vol. 50. Siam, 1997.</p>
+<p>&#91;2&#93; Kochenderfer, Mykel J., and Tim A. Wheeler.     Algorithms for optimization. Mit Press, 2019.</p>
+<p>&#91;3&#93;  Solomon, Justin. Numerical algorithms: methods for computer vision,     machine learning, and graphics. CRC press, 2015.</p>
+
+
+
+          <HR/>
+          <div class="footer"><p>
+          Published from <a href="NumericalAnalysis.jmd">NumericalAnalysis.jmd</a> using
+          <a href="http://github.com/mpastell/Weave.jl">Weave.jl</a>
+           on 2020-04-11.
+          <p></div>
+
+
+        </div>
+      </div>
+    </div>
+  </BODY>
+</HTML>
